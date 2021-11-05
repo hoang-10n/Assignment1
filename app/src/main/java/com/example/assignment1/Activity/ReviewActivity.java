@@ -50,8 +50,6 @@ public class ReviewActivity extends AppCompatActivity {
         descriptionTxt.setText("  -  Description:\n" + descriptionMsg);
 
         closeBtn.setOnClickListener(v -> {
-//            Intent intent1 = new Intent(ReviewActivity.this, HomeActivity.class);
-//            setResult(RESULT_FIRST_USER, intent1);
             finish();
         });
 
@@ -59,8 +57,8 @@ public class ReviewActivity extends AppCompatActivity {
         else {
             deleteBtn.setVisibility(View.VISIBLE);
             deleteBtn.setOnClickListener(v -> {
-                JsonHelper.deleteReviewByCode(getApplicationContext(), codeMsg);
                 Intent intent1 = new Intent(ReviewActivity.this, HomeActivity.class);
+                intent1.putExtra("code", codeMsg);
                 setResult(RESULT_OK, intent1);
                 finish();
             });

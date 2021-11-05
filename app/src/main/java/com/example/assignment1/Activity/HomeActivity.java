@@ -63,34 +63,32 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    // TODO ask this
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//        if (resultCode == RESULT_OK) {
-//            ft.detach(myReviewFragment).commitNow();
-//            ft.attach(myReviewFragment).commitNow();
-//        } else if (resultCode == RESULT_CANCELED) {
-//            ft.detach(allReviewFragment).commitNow();
-//            ft.attach(allReviewFragment).commitNow();
-//        }
-//    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 100) {
+        if (requestCode == 101) {
             if (resultCode == RESULT_OK) {
                 Bundle bundle = data.getExtras();
                 if (bundle != null) {
-                    if (bundle.get("activity") == null) return;
                     String code = (String) bundle.get("code");
                     String name = (String) bundle.get("name");
                     String major = (String) bundle.get("major");
                     String description = (String) bundle.get("description");
                     Review review = new Review(code, name, major, username, description);
                     JsonHelper.addReview(getApplicationContext(), review);
+                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                    ft.detach(myReviewFragment).commitNow();
+                    ft.attach(myReviewFragment).commitNow();
+                }
+            }
+        } else if (requestCode == 100) {
+            if (resultCode == RESULT_OK) {
+                Bundle bundle = data.getExtras();
+                if (bundle != null) {
+                    JsonHelper.deleteReviewByCode(getApplicationContext(), (String) bundle.get("code"));
+                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                    ft.detach(myReviewFragment).commitNow();
+                    ft.attach(myReviewFragment).commitNow();
                 }
             }
         }

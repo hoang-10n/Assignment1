@@ -62,7 +62,7 @@ public class AllReviewFragment extends Fragment {
                 intent.putExtra("createdDate", createdStr);
                 intent.putExtra("updatedDate", updatedStr);
                 intent.putExtra("description", descriptionStr);
-                startActivityForResult(intent, 103);
+                startActivity(intent);
             });
         }
         return allReviewView;

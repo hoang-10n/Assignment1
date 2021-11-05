@@ -36,9 +36,13 @@ public class AddActivity extends AppCompatActivity {
                 warning.setVisibility(View.VISIBLE);
             } else {
                 warning.setVisibility(View.INVISIBLE);
-                Review review = new Review(codeTxt, nameTxt, majorTxt, "", descriptionInput.getText().toString());
-                JsonHelper.addReview(getApplicationContext(), review);
+//                Review review = new Review(codeTxt, nameTxt, majorTxt, "", descriptionInput.getText().toString());
+//                JsonHelper.addReview(getApplicationContext(), review);
                 Intent intent = new Intent(AddActivity.this, HomeActivity.class);
+                intent.putExtra("code", codeTxt);
+                intent.putExtra("name", nameTxt);
+                intent.putExtra("major", majorTxt);
+                intent.putExtra("description", descriptionInput.getText().toString());
                 setResult(RESULT_OK, intent);
                 finish();
             }

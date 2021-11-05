@@ -67,13 +67,13 @@ public class MyReviewFragment extends Fragment {
                 intent.putExtra("createdDate", createdStr);
                 intent.putExtra("updatedDate", updatedStr);
                 intent.putExtra("description", descriptionStr);
-                startActivityForResult(intent, 100);
+                getActivity().startActivityForResult(intent, 100);
             });
         }
 
         addBtn.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), AddActivity.class);
-            startActivityForResult(intent, 101);
+            getActivity().startActivityForResult(intent, 101);
         });
 
         return myReviewView;
