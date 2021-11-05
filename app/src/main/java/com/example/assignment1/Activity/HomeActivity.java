@@ -3,6 +3,7 @@ package com.example.assignment1.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -22,6 +23,7 @@ public class HomeActivity extends AppCompatActivity {
     private MyReviewFragment myReviewFragment;
     private AllReviewFragment allReviewFragment;
 
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,18 +47,27 @@ public class HomeActivity extends AppCompatActivity {
         fragmentTransaction.commit();
 
         myReviewBtn.setOnClickListener(v -> {
+            myReviewBtn.setEnabled(false);
+            allReviewBtn.setEnabled(true);
+            accountBtn.setEnabled(true);
             FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
             fragmentTransaction1.replace(R.id.home_container, myReviewFragment);
             fragmentTransaction1.commit();
         });
 
         allReviewBtn.setOnClickListener(v -> {
+            myReviewBtn.setEnabled(true);
+            allReviewBtn.setEnabled(false);
+            accountBtn.setEnabled(true);
             FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
             fragmentTransaction1.replace(R.id.home_container, allReviewFragment);
             fragmentTransaction1.commit();
         });
 
         accountBtn.setOnClickListener(v -> {
+            myReviewBtn.setEnabled(true);
+            allReviewBtn.setEnabled(true);
+            accountBtn.setEnabled(false);
             FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
             fragmentTransaction1.replace(R.id.home_container, accountFragment);
             fragmentTransaction1.commit();

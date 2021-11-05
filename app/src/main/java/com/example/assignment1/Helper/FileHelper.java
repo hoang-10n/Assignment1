@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class FileHelper {
-    private static final String FILE_NAME = "reviews.json";
+    private static final String FILE_NAME = "review.json";
 
     static public void save(Context context, String str) {
         FileOutputStream os = null;
