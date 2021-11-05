@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".Activity.HomeActivity">
+
+  <Button
+      android:id="@+id/home_my_btn"
+      android:layout_width="135dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="2sp"
+      android:layout_marginLeft="2sp"
+      android:text="My Reviews"
+      android:textColor="@color/black"
+      android:textColorLink="@color/black"
+      app:backgroundTint="@android:color/transparent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/home_all_btn"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <Button
+      android:id="@+id/home_all_btn"
+      android:layout_width="136dp"
+      android:layout_height="wrap_content"
+      android:text="All Reviews"
+      android:textColor="@color/black"
+      android:textColorLink="@color/black"
+      app:backgroundTint="@android:color/transparent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/home_account_btn"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/home_my_btn" />
+
+  <Button
+      android:id="@+id/home_account_btn"
+      android:layout_width="136dp"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="2sp"
+      android:layout_marginRight="2sp"
+      android:text="My Account"
+      android:textColor="@color/black"
+      android:textColorLink="@color/black"
+      app:backgroundTint="@android:color/transparent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/home_all_btn" />
+
+  <TextView
+      android:id="@+id/home_welcome"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="WELCOME"
+      android:textColor="@color/black"
+      android:textSize="30sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      tools:layout_editor_absoluteY="8dp" />
+
+  <FrameLayout
+      android:id="@+id/home_container"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintBottom_toTopOf="@+id/home_all_btn"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/home_welcome" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
