@@ -50,9 +50,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5sp"
                 android:background="@drawable/custom_border"
-                android:capitalize="characters"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="textPersonName|textCapCharacters"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
         </TableRow>
@@ -77,9 +76,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5sp"
                 android:background="@drawable/custom_border"
-                android:capitalize="words"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="textPersonName|textCapWords"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
         </TableRow>
@@ -104,9 +102,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5sp"
                 android:background="@drawable/custom_border"
-                android:capitalize="words"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="textPersonName|textCapWords"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
         </TableRow>
@@ -131,9 +128,9 @@
                 android:layout_height="200sp"
                 android:layout_margin="5sp"
                 android:background="@drawable/custom_border"
-                android:capitalize="sentences"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:gravity="top|left"
+                android:inputType="textPersonName|textCapSentences"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
         </TableRow>

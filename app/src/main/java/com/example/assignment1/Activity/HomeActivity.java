@@ -18,7 +18,6 @@ import com.example.assignment1.R;
 
 public class HomeActivity extends AppCompatActivity {
     private Button myReviewBtn, allReviewBtn, accountBtn;
-    private TextView welcomeBtn;
     private String username;
     private MyReviewFragment myReviewFragment;
     private AllReviewFragment allReviewFragment;
@@ -28,7 +27,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        welcomeBtn = findViewById(R.id.home_welcome);
+        TextView welcomeBtn = findViewById(R.id.home_welcome);
         myReviewBtn = findViewById(R.id.home_my_btn);
         allReviewBtn = findViewById(R.id.home_all_btn);
         accountBtn = findViewById(R.id.home_account_btn);
@@ -40,6 +39,7 @@ public class HomeActivity extends AppCompatActivity {
         myReviewFragment = new MyReviewFragment();
         allReviewFragment = new AllReviewFragment();
         AccountFragment accountFragment = new AccountFragment();
+        accountFragment.setNameAndDate(username, (String) intent.getExtras().get("created_date"));
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.home_container, myReviewFragment);
@@ -70,6 +70,7 @@ public class HomeActivity extends AppCompatActivity {
             FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
             fragmentTransaction1.replace(R.id.home_container, accountFragment);
             fragmentTransaction1.commit();
+            accountFragment.setNameAndDate(username, (String) intent.getExtras().get("created_date"));
         });
     }
 

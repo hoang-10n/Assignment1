@@ -1,6 +1,5 @@
 package com.example.assignment1.Activity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,7 +18,7 @@ import com.example.assignment1.Model.Account;
 import com.example.assignment1.R;
 
 public class MainActivity extends AppCompatActivity {
-    private Button submitBtn, loginBtn, signInBtn;
+    private Button loginBtn, signInBtn;
     private EditText usernameInput, passwordInput;
     private TextView warning;
     private boolean isSignIn = false;
@@ -40,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             JsonHelper.init(username, FileHelper.load(getApplicationContext()));
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             intent.putExtra("username", username);
+            intent.putExtra("created_date", account.getCreatedDate());
             startActivity(intent);
         }
     }
@@ -56,10 +56,12 @@ public class MainActivity extends AppCompatActivity {
         else {
             notiHelper.createNotification("RMIT course review", "Account \"" + username + "\" have been registered");
             warning.setText("");
-            dataHelper.addAccount(new Account(username, password));
+            Account newAccount = new Account(username, password);
+            dataHelper.addAccount(newAccount);
             JsonHelper.init(username, FileHelper.load(getApplicationContext()));
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             intent.putExtra("username", username);
+            intent.putExtra("created_date", newAccount.getCreatedDate());
             startActivity(intent);
         }
     }
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         notiHelper = new NotificationHelper(MainActivity.class, this);
 
-        submitBtn = findViewById(R.id.main_submit_btn);
+        Button submitBtn = findViewById(R.id.main_submit_btn);
         loginBtn = findViewById(R.id.main_login_btn);
         signInBtn = findViewById(R.id.main_sign_in_btn);
         usernameInput = findViewById(R.id.main_username_input);

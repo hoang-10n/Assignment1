@@ -1,12 +1,7 @@
 package com.example.assignment1.Fragment;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +9,14 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 import com.example.assignment1.Activity.AddActivity;
-import com.example.assignment1.Helper.JsonHelper;
-import com.example.assignment1.R;
-import com.example.assignment1.Model.Review;
 import com.example.assignment1.Activity.ReviewActivity;
+import com.example.assignment1.Helper.JsonHelper;
+import com.example.assignment1.Model.Review;
+import com.example.assignment1.R;
 
 import java.util.ArrayList;
 
@@ -32,6 +30,11 @@ public class MyReviewFragment extends Fragment {
         Button addBtn = myReviewView.findViewById(R.id.my_review_add_btn);
 
         ArrayList<Review> myReviews = JsonHelper.getMyReviews();
+
+        addBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), AddActivity.class);
+            getActivity().startActivityForResult(intent, 101);
+        });
 
         if (myReviews.isEmpty()) return myReviewView;
 
@@ -69,11 +72,6 @@ public class MyReviewFragment extends Fragment {
                 getActivity().startActivityForResult(intent, 100);
             });
         }
-
-        addBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), AddActivity.class);
-            getActivity().startActivityForResult(intent, 101);
-        });
 
         return myReviewView;
     }

@@ -19,6 +19,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/account_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
+        android:text="NAME"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
         android:id="@+id/account_created"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,39 +42,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/account_name" />
 
-    <TextView
-        android:id="@+id/account_review_num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20sp"
-        android:text="REVIEW NUM"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/account_created" />
-
     <Button
         android:id="@+id/account_logout_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20sp"
         android:text="Log out"
+        app:backgroundTint="@color/purple_700"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/account_review_num" />
+        app:layout_constraintTop_toBottomOf="@+id/account_created" />
 
-    <TextView
-        android:id="@+id/account_name"
+    <Button
+        android:id="@+id/account_delete_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10sp"
-        android:text="NAME"
-        android:textColor="@color/black"
-        android:textSize="34sp"
+        android:layout_margin="20sp"
+        android:text="Delete this account"
+        app:backgroundTint="@color/design_default_color_error"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/account_logout_btn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

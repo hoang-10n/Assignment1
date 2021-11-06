@@ -49,4 +49,15 @@ public class JsonHelper {
         String json = new Gson().toJson(reviews);
         FileHelper.save(context, json);
     }
+
+    public static void deleteReviewByUsername(Context context) {
+        for (Review review : reviews) {
+            if (review.getAuthor().equals(username)) {
+                reviews.remove(review);
+                break;
+            }
+        }
+        String json = new Gson().toJson(reviews);
+        FileHelper.save(context, json);
+    }
 }

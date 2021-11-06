@@ -14,20 +14,19 @@ import com.example.assignment1.Helper.JsonHelper;
 import com.example.assignment1.R;
 
 public class ReviewActivity extends AppCompatActivity {
-    private TextView codeTxt, nameTxt, majorTxt, createdDateTxt, updatedDateTxt, authorTxt, descriptionTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review);
 
-        codeTxt = findViewById(R.id.review_code);
-        nameTxt = findViewById(R.id.review_name);
-        createdDateTxt = findViewById(R.id.review_created);
-        updatedDateTxt = findViewById(R.id.review_updated);
-        majorTxt = findViewById(R.id.review_major);
-        authorTxt = findViewById(R.id.review_author);
-        descriptionTxt = findViewById(R.id.review_description);
+        TextView codeTxt = findViewById(R.id.review_code);
+        TextView nameTxt = findViewById(R.id.review_name);
+        TextView createdDateTxt = findViewById(R.id.review_created);
+        TextView updatedDateTxt = findViewById(R.id.review_updated);
+        TextView majorTxt = findViewById(R.id.review_major);
+        TextView authorTxt = findViewById(R.id.review_author);
+        TextView descriptionTxt = findViewById(R.id.review_description);
 
         Button deleteBtn = findViewById(R.id.review_delete_btn);
         ImageButton closeBtn = findViewById(R.id.review_close_btn);
