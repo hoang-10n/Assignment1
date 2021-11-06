@@ -19,10 +19,10 @@ import com.example.assignment1.Model.Account;
 import com.example.assignment1.R;
 
 public class MainActivity extends AppCompatActivity {
-    private Button loginBtn, signInBtn;
+    private Button loginBtn, signupBtn;
     private EditText usernameInput, passwordInput;
     private TextView warning;
-    private boolean isSignIn = false;
+    private boolean isSignup = false;
     private NotificationHelper notiHelper;
 
     private void verifyLogin(String username, String password) {
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private void verifySignIn(String username, String password) {
+    private void verifySignup(String username, String password) {
         if (username.equals("") || password.equals("")) {
             warning.setText("Please fill all fields");
             return;
@@ -75,28 +75,28 @@ public class MainActivity extends AppCompatActivity {
 
         Button submitBtn = findViewById(R.id.main_submit_btn);
         loginBtn = findViewById(R.id.main_login_btn);
-        signInBtn = findViewById(R.id.main_sign_in_btn);
+        signupBtn = findViewById(R.id.main_signup_btn);
         usernameInput = findViewById(R.id.main_username_input);
         passwordInput = findViewById(R.id.main_password_input);
         warning = findViewById(R.id.main_warning);
 
         submitBtn.setOnClickListener(v -> {
-            if (isSignIn)
-                verifySignIn(usernameInput.getText().toString(), passwordInput.getText().toString());
+            if (isSignup)
+                verifySignup(usernameInput.getText().toString(), passwordInput.getText().toString());
             else
                 verifyLogin(usernameInput.getText().toString(), passwordInput.getText().toString());
         });
 
         loginBtn.setOnClickListener(v -> {
-            isSignIn = false;
+            isSignup = false;
             loginBtn.setEnabled(false);
-            signInBtn.setEnabled(true);
+            signupBtn.setEnabled(true);
         });
 
-        signInBtn.setOnClickListener(v -> {
-            isSignIn = true;
+        signupBtn.setOnClickListener(v -> {
+            isSignup = true;
             loginBtn.setEnabled(true);
-            signInBtn.setEnabled(false);
+            signupBtn.setEnabled(false);
         });
     }
 
