@@ -41,5 +41,8 @@ This app is created for students to share their review about the course with oth
 - XML files and other resources:
 
 ![image](https://user-images.githubusercontent.com/56622316/140617320-01136b84-6e40-4051-815d-d91fa8a86d30.png)
+- `AndroidManifest.xml` in the manifests folder
+- GSON must be included in `build.gradle`:
 
-
+```    implementation 'com.google.code.gson:gson:2.8.9'
+```
