@@ -28,7 +28,14 @@ This app is created for students to share their review about the course with oth
 ## Resources
 `drawable`: 6 files `anonymous.png`, `custom_border.xml`, `gradient_background.xml`, `ic_launcher_background.xml`, `ic_launcher_foreground.xml`, `logo.png`.
 
-`layout`: 10 XML files
+`layout`: 10 XML files.
 - Activities: `activity_add.xml`, `activity_home.xml`, `activity_main.xml`, `activity_major_list_view.xml`, `activity_review.xml`.
 - Fragments: `fragment_account.xml`, `fragment_my_review.xml`, `fragment_all_review.xml`.
 - Others: `review_block.xml`, `major_list_view.xml`
+
+## Set up and running
+- Make sure all the files above are in the right directory.
+- JAVA files:![image](https://user-images.githubusercontent.com/56622316/140617288-9898f00b-c2e1-4b95-b5e1-b262a93ffd89.png)
+- XML files and other resources: ![image](https://user-images.githubusercontent.com/56622316/140617320-01136b84-6e40-4051-815d-d91fa8a86d30.png)
+
+
