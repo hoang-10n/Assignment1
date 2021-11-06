@@ -32,7 +32,7 @@ public class AllReviewFragment extends Fragment {
         if (allReviews.isEmpty()) return allReviewView;
 
         for (int i = 0; i < allReviews.size(); i++) {
-            @SuppressLint("InflateParams") View temp = inflater.inflate(R.layout.review_block, null);
+            View temp = inflater.inflate(R.layout.review_block, null);
             temp.setId(i);
             TextView codeTxt = temp.findViewById(R.id.code);
             TextView nameTxt = temp.findViewById(R.id.name);

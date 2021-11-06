@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class Review {
     private String code;
@@ -14,20 +15,18 @@ public class Review {
     private String author;
     private String description;
 
-    @SuppressLint("SimpleDateFormat")
     public Review(String code, String name, String major, String author, String description) {
         this.code = code;
         this.name = name;
         this.major = major;
         this.author = author;
         this.description = description;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         String date = dateFormat.format(new Date());
         created = date;
         updated = date;
     }
 
-    @SuppressLint("SimpleDateFormat")
     public Review(String code, String name, String major, String created, String updated, String author, String description) {
         this.code = code;
         this.name = name;

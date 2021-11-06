@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class Account {
     private String username;
@@ -13,7 +14,7 @@ public class Account {
     public Account(String username, String password) {
         this.username = username;
         this.password = password;
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         createdDate = dateFormat.format(new Date());
     }
 

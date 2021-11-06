@@ -23,7 +23,6 @@ import com.example.assignment1.Activity.ReviewActivity;
 import java.util.ArrayList;
 
 public class MyReviewFragment extends Fragment {
-    @SuppressLint("ResourceType")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,7 +36,7 @@ public class MyReviewFragment extends Fragment {
         if (myReviews.isEmpty()) return myReviewView;
 
         for (int i = 0; i < myReviews.size(); i++) {
-            @SuppressLint("InflateParams") View temp = inflater.inflate(R.layout.review_block, null);
+            View temp = inflater.inflate(R.layout.review_block, null);
             temp.setId(i);
             TextView codeTxt = temp.findViewById(R.id.code);
             TextView nameTxt = temp.findViewById(R.id.name);

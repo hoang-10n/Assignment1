@@ -16,7 +16,6 @@ public class JsonHelper {
     public static void init(String username, String reviewJSON) {
         JsonHelper.username = username;
         JsonHelper.reviews = new Gson().fromJson(reviewJSON, new TypeToken<List<Review>>() {}.getType());
-        System.out.println("OK");
     }
 
     public static ArrayList<Review> getAllReviews() {

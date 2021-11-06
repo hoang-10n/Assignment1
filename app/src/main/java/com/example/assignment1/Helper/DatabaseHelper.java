@@ -34,6 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 new String[]{username}, null, null, null);
         if (cursor != null) cursor.moveToFirst();
         else return null;
+        if (cursor.getCount() == 0) return null;
         return new Account(cursor.getString(0), cursor.getString(1), cursor.getString(2));
     }
 

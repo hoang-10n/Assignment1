@@ -23,7 +23,6 @@ public class HomeActivity extends AppCompatActivity {
     private MyReviewFragment myReviewFragment;
     private AllReviewFragment allReviewFragment;
 
-    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
