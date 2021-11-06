@@ -36,8 +36,10 @@ This app is created for students to share their review about the course with oth
 ## Set up and running
 - Make sure all the files above are in the right directory.
 - JAVA files:
+
 ![image](https://user-images.githubusercontent.com/56622316/140617288-9898f00b-c2e1-4b95-b5e1-b262a93ffd89.png)
 - XML files and other resources:
+
 ![image](https://user-images.githubusercontent.com/56622316/140617320-01136b84-6e40-4051-815d-d91fa8a86d30.png)
 
 
