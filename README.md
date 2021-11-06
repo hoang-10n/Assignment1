@@ -4,7 +4,7 @@ Assignment 1 for Android Development
 ## Introduction
 This app is created for students to share their review about the course with other students. Users can login, sign up into the application, view their own reviews and all reviews from other accounts, create and delete reviews, view account info and delete accounts.
 
-## Component
+## Components
 `Activity` Folder: 5 Java files
 - `AddActivity.java`: for adding reviews to the `review.json` file.
 - `HomeActivity.java`: containing 3 fragments: **AccountFragment**, **MyReviewFragment** and **AllReviewFragment**.
@@ -22,3 +22,8 @@ This app is created for students to share their review about the course with oth
 - `FileHelper.java`: handling reading and reading from `review.json` file.
 - `JsonHelper.java`: convert Json to **Review** objects and store them.
 - `NotificationHelper.java`: handling notifications.
+
+`Model` Folder: 2 Java files: `Account.java` and `Review.java`
+
+## Resources
+`drawable`: 6 files `anonymous.png`, `custom_border.xml`, `gradient_background.xml`, `ic_launcher_background.xml`, `ic_launcher_foreground.xml`, `logo.png`
