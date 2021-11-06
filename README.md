@@ -44,5 +44,4 @@ This app is created for students to share their review about the course with oth
 - `AndroidManifest.xml` in the manifests folder
 - GSON must be included in `build.gradle`:
 
-```    implementation 'com.google.code.gson:gson:2.8.9'
-```
+```implementation 'com.google.code.gson:gson:2.8.9'```
