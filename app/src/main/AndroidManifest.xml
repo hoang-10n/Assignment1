@@ -4,12 +4,13 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Assignment1">
-        <activity android:name=".Activity.AddActivity"></activity>
+        <activity android:name=".Activity.MajorListViewActivity"></activity>
+        <activity android:name=".Activity.AddActivity" />
         <activity android:name=".Activity.ReviewActivity" />
         <activity android:name=".Activity.HomeActivity" />
         <activity android:name=".Activity.MainActivity">

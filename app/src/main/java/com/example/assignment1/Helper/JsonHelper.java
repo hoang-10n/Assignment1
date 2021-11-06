@@ -16,6 +16,7 @@ public class JsonHelper {
     public static void init(String username, String reviewJSON) {
         JsonHelper.username = username;
         JsonHelper.reviews = new Gson().fromJson(reviewJSON, new TypeToken<List<Review>>() {}.getType());
+        if (reviews == null) reviews = new ArrayList<>();
     }
 
     public static ArrayList<Review> getAllReviews() {
@@ -51,11 +52,13 @@ public class JsonHelper {
     }
 
     public static void deleteReviewByUsername(Context context) {
+        ArrayList<Review> deletedReview = new ArrayList<>();
         for (Review review : reviews) {
             if (review.getAuthor().equals(username)) {
-                reviews.remove(review);
+                deletedReview.add(review);
             }
         }
+        reviews.removeAll(deletedReview);
         String json = new Gson().toJson(reviews);
         FileHelper.save(context, json);
     }

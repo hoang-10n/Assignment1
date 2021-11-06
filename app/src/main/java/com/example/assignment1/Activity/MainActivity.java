@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
         if (account == null) warning.setText("No account found");
         else if (!password.equals(account.getPassword())) warning.setText("Wrong password");
         else {
-            warning.setText("");
             JsonHelper.init(username, FileHelper.load(getApplicationContext()));
+            warning.setText("");
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             intent.putExtra("username", username);
             intent.putExtra("created_date", account.getCreatedDate());
@@ -54,15 +54,15 @@ public class MainActivity extends AppCompatActivity {
         Account account = dataHelper.getAccountByUsername(username);
         if (account != null) warning.setText("Account existed");
         else {
+            JsonHelper.init(username, FileHelper.load(getApplicationContext()));
             notiHelper.createNotification("RMIT course review", "Account \"" + username + "\" have been registered");
             warning.setText("");
             Account newAccount = new Account(username, password);
             dataHelper.addAccount(newAccount);
-            JsonHelper.init(username, FileHelper.load(getApplicationContext()));
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             intent.putExtra("username", username);
             intent.putExtra("created_date", newAccount.getCreatedDate());
-            startActivity(intent);
+            startActivityForResult(intent, 103);
         }
     }
 

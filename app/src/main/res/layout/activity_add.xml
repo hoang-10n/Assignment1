@@ -24,6 +24,7 @@
         android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:longClickable="false"
         app:layout_constraintBottom_toTopOf="@+id/add_warning"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -103,14 +104,18 @@
                 android:layout_margin="5sp"
                 android:background="@drawable/custom_border"
                 android:ems="10"
+                android:focusable="false"
                 android:inputType="textPersonName|textCapWords"
+                android:longClickable="false"
+                android:text="Other"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:longClickable="false">
 
             <TextView
                 android:id="@+id/textView4"

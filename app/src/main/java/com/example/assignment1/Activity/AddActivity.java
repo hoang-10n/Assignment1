@@ -9,11 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.assignment1.Helper.JsonHelper;
-import com.example.assignment1.Model.Review;
 import com.example.assignment1.R;
 
 public class AddActivity extends AppCompatActivity {
+    EditText majorInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +23,7 @@ public class AddActivity extends AppCompatActivity {
         Button discardBtn = findViewById(R.id.add_discard_btn);
         EditText codeInput = findViewById(R.id.add_code_input);
         EditText nameInput = findViewById(R.id.add_name_input);
-        EditText majorInput = findViewById(R.id.add_major_input);
+        majorInput = findViewById(R.id.add_major_input);
         EditText descriptionInput = findViewById(R.id.add_discription_input);
         TextView warning = findViewById(R.id.add_warning);
 
@@ -51,5 +50,20 @@ public class AddActivity extends AppCompatActivity {
             setResult(RESULT_OK, intent);
             finish();
         });
+
+        majorInput.setOnClickListener(v -> {
+            Intent intent = new Intent(AddActivity.this, MajorListViewActivity.class);
+            startActivityForResult(intent, 104);
+        });
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 104) {
+            if (resultCode == RESULT_OK) {
+                String major = (String) data.getExtras().get("major");
+                majorInput.setText(major);
+            }
+        }
     }
 }
