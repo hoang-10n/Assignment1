@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,12 +36,11 @@ public class MainActivity extends AppCompatActivity {
         else if (!password.equals(account.getPassword())) warning.setText("Wrong password");
         else {
             warning.setText("");
-            dataHelper.deleteAccountByUsername("me");
             JsonHelper.init(username, FileHelper.load(getApplicationContext()));
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             intent.putExtra("username", username);
             intent.putExtra("created_date", account.getCreatedDate());
-            startActivity(intent);
+            startActivityForResult(intent, 103);
         }
     }
 
@@ -98,5 +98,20 @@ public class MainActivity extends AppCompatActivity {
             loginBtn.setEnabled(true);
             signInBtn.setEnabled(false);
         });
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 103) {
+            if (resultCode == RESULT_OK) {
+                usernameInput.setText("");
+                passwordInput.setText("");
+                Bundle bundle = data.getExtras();
+                if (bundle != null)
+                    notiHelper.createNotification("RMIT course review", "Account \"" + bundle.get("username") + "\" have been deleted");
+            }
+        }
     }
 }

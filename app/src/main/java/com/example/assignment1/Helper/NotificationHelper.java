@@ -17,7 +17,7 @@ import static android.content.Context.NOTIFICATION_SERVICE;
 public class NotificationHelper {
     private Class<?> classForNotification;
     private Context context;
-    private final String CHANNEL_ID = "my_channel";
+    private final String CHANNEL_ID = "my channel";
     private int notificationId;
 
     public NotificationHelper(Class<?> classForNotification, Context context) {

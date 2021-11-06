@@ -34,7 +34,7 @@ public class HomeActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         username = (String) intent.getExtras().get("username");
-        welcomeBtn.setText("Welcome back " + username + "!");
+        welcomeBtn.setText("Welcome " + username + "!");
 
         myReviewFragment = new MyReviewFragment();
         allReviewFragment = new AllReviewFragment();

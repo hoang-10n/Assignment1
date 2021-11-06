@@ -54,7 +54,6 @@ public class JsonHelper {
         for (Review review : reviews) {
             if (review.getAuthor().equals(username)) {
                 reviews.remove(review);
-                break;
             }
         }
         String json = new Gson().toJson(reviews);
