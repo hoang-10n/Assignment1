@@ -1,4 +1,4 @@
-# Assignment1
+# Assignment1 :+1: 💯
 Assignment 1 for Android Development
  
 ## Introduction
