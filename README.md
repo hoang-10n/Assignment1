@@ -11,10 +11,12 @@ This app is created for students to share their review about the course with oth
 - `MainActivity.java`: for the login and sign up purposes.
 - `MajorListViewActivity.java`: displaying the list view of majors when clicking on the major input in `activity_add.xml`
 - `ReviewActivity.java`: displaying the information of a review when clicked.
+
 `Fragment` Folder: 3 Java files
 - `AccountFragment.java`: containing the info of the account and logout and delete account options.
 - `AllReviewFragment.java`: showing all reviews of all accounts.
 - `MyReviewFragment.java`: showing all reviews of the current accounts.
+
 `Helper` Folder: 4 Java files
 - `DatabaseHelper.java`: handing all database functions for the `account.db` file.
 - `FileHelper.java`: handling reading and reading from `review.json` file.
