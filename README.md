@@ -46,5 +46,5 @@ This app is created for students to share their review about the course with oth
 
 ```implementation 'com.google.code.gson:gson:2.8.9'```
 - Device used for the demo: Pixel 2 API 30.
-- Link to the demo(https://rmiteduau-my.sharepoint.com/:v:/r/personal/minh_vuthanh_rmit_edu_vn/Documents/A1_Demo_Videos/s3749795_DoanLuongHoang_A1.wmv?csf=1&web=1&e=S12l2r)
-- Link to github(https://github.com/hoang-10n/Assignment1)
+- [Link to the demo](https://rmiteduau-my.sharepoint.com/:v:/r/personal/minh_vuthanh_rmit_edu_vn/Documents/A1_Demo_Videos/s3749795_DoanLuongHoang_A1.wmv?csf=1&web=1&e=S12l2r)
+- [Link to github](https://github.com/hoang-10n/Assignment1)
