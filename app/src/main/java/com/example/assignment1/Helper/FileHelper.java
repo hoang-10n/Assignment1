@@ -9,10 +9,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * This class handles reading and writing into review.json file
+ */
 public class FileHelper {
     private static final String FILE_NAME = "review.json";
 
-    static public void save(Context context, String str) {
+    static public void save(Context context, String str) {                                          // rewrite review.json file
         FileOutputStream os = null;
         try {
             os = context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
@@ -32,7 +35,7 @@ public class FileHelper {
         }
     }
 
-    static public String load(Context context) {
+    static public String load(Context context) {                                                    // load review.json file and return String content
         FileInputStream is = null;
         StringBuilder sb = null;
         try {

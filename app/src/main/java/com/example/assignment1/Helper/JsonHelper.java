@@ -9,13 +9,17 @@ import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class converts string content from review.json to Review objects and store them in ArrayList
+ */
 public class JsonHelper {
     private static String username;
     private static ArrayList<Review> reviews;
 
-    public static void init(String username, String reviewJSON) {
+    public static void init(String username, String reviewJSON) {                                   // initialize current user and their reviews
         JsonHelper.username = username;
-        JsonHelper.reviews = new Gson().fromJson(reviewJSON, new TypeToken<List<Review>>() {}.getType());
+        JsonHelper.reviews = new Gson().fromJson(                                                   // convert Json String to ArrayList of Review
+                reviewJSON, new TypeToken<List<Review>>() {}.getType());
         if (reviews == null) reviews = new ArrayList<>();
     }
 
@@ -23,7 +27,7 @@ public class JsonHelper {
         return reviews;
     }
 
-    public static ArrayList<Review> getMyReviews() {
+    public static ArrayList<Review> getMyReviews() {                                                // get reviews of current user
         ArrayList<Review> temp = new ArrayList<>();
         for (Review review : reviews) {
             if (review.getAuthor().equals(username)) {
@@ -33,14 +37,14 @@ public class JsonHelper {
         return temp;
     }
 
-    public static void addReview(Context context, Review review) {
+    public static void addReview(Context context, Review review) {                                  // add new review to the review.json
         review.setAuthor(username);
         reviews.add(review);
         String json = new Gson().toJson(reviews);
         FileHelper.save(context, json);
     }
 
-    public static void deleteReviewByCode(Context context, String code) {
+    public static void deleteReviewByCode(Context context, String code) {                           // delete a review from review.json using the course code
         for (Review review : reviews) {
             if (review.getAuthor().equals(username) && review.getCode().equals(code)) {
                 reviews.remove(review);
@@ -51,7 +55,7 @@ public class JsonHelper {
         FileHelper.save(context, json);
     }
 
-    public static void deleteReviewByUsername(Context context) {
+    public static void deleteMyReview(Context context) {                                            // delete all review of current user
         ArrayList<Review> deletedReview = new ArrayList<>();
         for (Review review : reviews) {
             if (review.getAuthor().equals(username)) {

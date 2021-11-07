@@ -18,26 +18,29 @@ import com.example.assignment1.R;
 
 import java.util.ArrayList;
 
+/**
+ * This fragment displays all reviews from all users
+ * XML file: fragment_all_review.xml
+ */
 public class AllReviewFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View allReviewView = inflater.inflate(R.layout.fragment_all_review, container, false);
+        View allReviewView = inflater.inflate(
+                R.layout.fragment_all_review, container, false);
         LinearLayout allReviewContainer = allReviewView.findViewById(R.id.all_review_container);
-
         ArrayList<Review> allReviews = JsonHelper.getAllReviews();
-
-        if (allReviews.isEmpty()) return allReviewView;
+        if (allReviews == null) return allReviewView;
 
         for (int i = 0; i < allReviews.size(); i++) {
-            View temp = inflater.inflate(R.layout.review_block, null);
-            temp.setId(i);
-            TextView codeTxt = temp.findViewById(R.id.code);
-            TextView nameTxt = temp.findViewById(R.id.name);
-            TextView authorTxt = temp.findViewById(R.id.author);
-            TextView majorTxt = temp.findViewById(R.id.major);
+            View block = inflater.inflate(R.layout.review_block, null);
+            block.setId(i);
+            TextView codeTxt = block.findViewById(R.id.code);                                       // declare all components in each review_block.xml
+            TextView nameTxt = block.findViewById(R.id.name);
+            TextView authorTxt = block.findViewById(R.id.author);
+            TextView majorTxt = block.findViewById(R.id.major);
 
-            String codeStr = allReviews.get(i).getCode();
+            String codeStr = allReviews.get(i).getCode();                                           // get data from JsonHelper.java
             String nameStr = allReviews.get(i).getName();
             String authorStr = allReviews.get(i).getAuthor();
             String majorStr = allReviews.get(i).getMajor();
@@ -49,8 +52,9 @@ public class AllReviewFragment extends Fragment {
             nameTxt.setText(nameStr);
             authorTxt.setText(authorStr);
             majorTxt.setText(majorStr);
-            allReviewContainer.addView(temp);
-            temp.setOnClickListener(v -> {
+            allReviewContainer.addView(block);
+
+            block.setOnClickListener(v -> {                                                         // send intent with data to ReviewActivity.java
                 Intent intent = new Intent(getActivity(), ReviewActivity.class);
                 intent.putExtra("origin", "all");
                 intent.putExtra("code", codeStr);

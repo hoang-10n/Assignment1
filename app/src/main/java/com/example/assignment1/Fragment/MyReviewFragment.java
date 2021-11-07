@@ -1,5 +1,6 @@
 package com.example.assignment1.Fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,33 +21,35 @@ import com.example.assignment1.R;
 
 import java.util.ArrayList;
 
+/**
+ * This fragment displays all reviews from current user
+ * XML file: fragment_my_review.xml
+ */
 public class MyReviewFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View myReviewView = inflater.inflate(R.layout.fragment_my_review, container, false);
+        Activity activity = requireActivity();
         LinearLayout myReviewContainer = myReviewView.findViewById(R.id.my_review_container);
         Button addBtn = myReviewView.findViewById(R.id.my_review_add_btn);
-
         ArrayList<Review> myReviews = JsonHelper.getMyReviews();
 
-        addBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), AddActivity.class);
-            getActivity().startActivityForResult(intent, 101);
+        addBtn.setOnClickListener(v -> {                                                            // send data with request code to AddActivity.java
+            Intent intent = new Intent(activity, AddActivity.class);
+            activity.startActivityForResult(intent, 101);
         });
-
-        if (myReviews.isEmpty()) return myReviewView;
 
         for (int i = 0; i < myReviews.size(); i++) {
             View temp = inflater.inflate(R.layout.review_block, null);
             temp.setId(i);
-            TextView codeTxt = temp.findViewById(R.id.code);
+            TextView codeTxt = temp.findViewById(R.id.code);                                        // declare all components in each review_block.xml
             TextView nameTxt = temp.findViewById(R.id.name);
             TextView authorTxt = temp.findViewById(R.id.author);
             TextView majorTxt = temp.findViewById(R.id.major);
 
-            String codeStr = myReviews.get(i).getCode();
+            String codeStr = myReviews.get(i).getCode();                                            // get data from JsonHelper.java
             String nameStr = myReviews.get(i).getName();
             String authorStr = myReviews.get(i).getAuthor();
             String majorStr = myReviews.get(i).getMajor();
@@ -59,8 +62,9 @@ public class MyReviewFragment extends Fragment {
             authorTxt.setText(authorStr);
             majorTxt.setText(majorStr);
             myReviewContainer.addView(temp);
-            temp.setOnClickListener(v -> {
-                Intent intent = new Intent(getActivity(), ReviewActivity.class);
+
+            temp.setOnClickListener(v -> {                                                          // send intent with data and request code to ReviewActivity.java
+                Intent intent = new Intent(activity, ReviewActivity.class);
                 intent.putExtra("origin", "my");
                 intent.putExtra("code", codeStr);
                 intent.putExtra("name", nameStr);
@@ -69,7 +73,7 @@ public class MyReviewFragment extends Fragment {
                 intent.putExtra("createdDate", createdStr);
                 intent.putExtra("updatedDate", updatedStr);
                 intent.putExtra("description", descriptionStr);
-                getActivity().startActivityForResult(intent, 100);
+                activity.startActivityForResult(intent, 100);
             });
         }
 

@@ -6,6 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+/**
+ * This class is a model for user reviews
+ */
 public class Review {
     private String code;
     private String name;
